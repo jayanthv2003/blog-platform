@@ -127,18 +127,9 @@ blog-platform/
 
 ## Screenshots
 
-> Add your own screenshots once the app is running — drop image files into
-> a `docs/screenshots/` folder and reference them below.
-
-| Home | Post detail | Admin dashboard |
+| Home Page | Post Detail | Admin Dashboard |
 |---|---|---|
-| `docs/screenshots/home.png` | `docs/screenshots/post-detail.png` | `docs/screenshots/admin-dashboard.png` |
-
-```md
-![Home page](docs/screenshots/home.png)
-![Post detail](docs/screenshots/post-detail.png)
-![Admin dashboard](docs/screenshots/admin-dashboard.png)
-```
+| ![Home page](docs/screenshots/home.png) | ![Post detail](docs/screenshots/post-detail.png) | ![Admin dashboard](docs/screenshots/admin-dashboard.png) |
 
 ---
 
