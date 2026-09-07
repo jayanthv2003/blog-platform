@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-body antialiased transition-colors duration-200;
+  }
+
+  html.dark body {
+    @apply bg-paper-dark text-paper;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink;
+  }
+
+  html.dark h1,
+  html.dark h2,
+  html.dark h3,
+  html.dark h4 {
+    @apply text-paper;
+  }
+
+  ::selection {
+    @apply bg-accent/30;
+  }
+
+  /* Visible keyboard focus, kept subtle but unmistakable */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #b8863a;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-0 bg-accent transition-all duration-200;
+  }
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+/* Long-form article body typography */
+.prose-article {
+  @apply font-body text-[1.0625rem] leading-[1.75] text-ink/90 max-w-prose;
+}
+html.dark .prose-article {
+  @apply text-paper/85;
+}
+.prose-article h2 {
+  @apply font-display text-2xl mt-10 mb-4;
+}
+.prose-article h3 {
+  @apply font-display text-xl mt-8 mb-3;
+}
+.prose-article p {
+  @apply mb-5;
+}
+.prose-article a {
+  @apply text-accent underline underline-offset-2;
+}
+.prose-article img {
+  @apply rounded-md my-6;
+}
+.prose-article blockquote {
+  @apply border-l-2 border-accent pl-4 italic text-ink/70 my-6;
+}
+html.dark .prose-article blockquote {
+  @apply text-paper/70;
+}
+.prose-article ul,
+.prose-article ol {
+  @apply pl-6 mb-5 space-y-1.5;
+}
+.prose-article ul {
+  @apply list-disc;
+}
+.prose-article ol {
+  @apply list-decimal;
+}
+.prose-article code {
+  @apply bg-ink/5 px-1.5 py-0.5 rounded text-[0.9em];
+}
+html.dark .prose-article code {
+  @apply bg-paper/10;
+}
+.prose-article pre {
+  @apply bg-ink text-paper rounded-md p-4 overflow-x-auto my-6;
+}
+
+/* React Quill editor - restyled to match the editorial theme */
+.quill {
+  @apply rounded-md overflow-hidden border border-line;
+}
+html.dark .quill {
+  @apply border-line-dark;
+}
+.ql-toolbar.ql-snow {
+  @apply bg-ink/[0.03] border-line font-body;
+}
+html.dark .ql-toolbar.ql-snow {
+  @apply bg-paper/5 border-line-dark;
+}
+.ql-container.ql-snow {
+  @apply border-line font-body text-base;
+  min-height: 320px;
+}
+html.dark .ql-container.ql-snow {
+  @apply border-line-dark text-paper;
+}
+.ql-editor {
+  min-height: 320px;
+}
+
+/* Scrollbar - understated */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-ink/15 rounded-full;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  @apply bg-paper/15;
+}
